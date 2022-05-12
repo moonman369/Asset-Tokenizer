@@ -1,4 +1,5 @@
 const LiquidToken = artifacts.require("liquidtoken.sol");
+var LiquidTokenSale = artifacts.require("liquidtokensale.sol");
 
 var chai = require("chai");
 const BN = web3.utils.BN;
@@ -27,6 +28,18 @@ contract("LiquidToken", async (accounts) => {
     expect(instance.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
       totalSupply
     );
+  });
+
+  it("should send 50% of the total supply to the crowdsale contract", async () => {
+    let instance1 = await LiquidToken.deployed();
+    let totalSupply = await Number(instance1.totalSupply());
+    let instance2 = await LiquidTokenSale.deployed();
+
+    expect(
+      instance.balanceOf(LiquidTokenSale.address)
+    ).to.eventually.be.a.bignumber.equal(new BN(totalSupply / 2));
+
+    expect;
   });
 
   it("is not possible to send an amount greater than the total supply", async () => {
