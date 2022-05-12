@@ -1,5 +1,4 @@
 const LiquidToken = artifacts.require("liquidtoken.sol");
-var LiquidTokenSale = artifacts.require("liquidtokensale.sol");
 
 var chai = require("chai");
 const BN = web3.utils.BN;
@@ -11,7 +10,7 @@ chai.use(chaiAsPromised);
 
 const expect = chai.expect;
 
-contract("LiquidToken", async (accounts) => {
+contract("Liquid Token Test", async (accounts) => {
   const [creator, recipient, anotherAccount] = await accounts;
 
   beforeEach(async () => {
@@ -29,9 +28,9 @@ contract("LiquidToken", async (accounts) => {
     //   totalSupply);
 
     //Using chai-as-promised: no await reqd.
-    expect(instance.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
-      totalSupply
-    );
+    return expect(
+      instance.balanceOf(creator)
+    ).to.eventually.be.a.bignumber.equal(totalSupply);
   });
 
   // it("should send 50% of the total supply to the crowdsale contract", async () => {
@@ -55,9 +54,9 @@ contract("LiquidToken", async (accounts) => {
 
     expect(instance.transfer(recipient, new BN(sendAmount))).to.eventually.be
       .rejected;
-    expect(instance.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
-      totalSupply
-    );
+    return expect(
+      instance.balanceOf(creator)
+    ).to.eventually.be.a.bignumber.equal(totalSupply);
   });
 
   it("is possible to send tokens between accounts", async () => {
@@ -72,8 +71,8 @@ contract("LiquidToken", async (accounts) => {
     expect(instance.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
       totalSupply - new BN(sendAmount)
     );
-    expect(instance.balanceOf(recipient)).to.eventually.be.a.bignumber.equal(
-      new BN(sendAmount)
-    );
+    return expect(
+      instance.balanceOf(recipient)
+    ).to.eventually.be.a.bignumber.equal(new BN(sendAmount));
   });
 });
