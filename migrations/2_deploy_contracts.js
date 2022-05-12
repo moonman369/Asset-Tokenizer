@@ -1,11 +1,12 @@
 var LiquidToken = artifacts.require("liquidtoken.sol");
 var LiquidTokenSale = artifacts.require("liquidtokensale.sol");
 
+const BN = web3.utils.BN;
+const totalSupply = 1000000;
 module.exports = async (deployer) => {
   let address = await web3.eth.getAccounts();
-  await deployer.deploy(LiquidToken, 1000000);
+  await deployer.deploy(LiquidToken, totalSupply);
   await deployer.deploy(LiquidTokenSale, 1, address[0], LiquidToken.address);
   let instance = await LiquidToken.deployed();
-  let saleAmount = instance.totalSupply();
-  await instance.transfer(LiquidTokenSale.address, BigInt(saleAmount.div(2)));
+  await instance.transfer(LiquidTokenSale.address, new BN(totalSupply / 2));
 };
