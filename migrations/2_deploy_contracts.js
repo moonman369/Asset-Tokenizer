@@ -1,5 +1,7 @@
 var LiquidToken = artifacts.require("liquidtoken.sol");
 var LiquidTokenSale = artifacts.require("liquidtokensale.sol");
+require("dotenv").config({ path: "../.env" });
+console.log(process.env);
 
 const BN = web3.utils.BN;
 const totalSupply = 1000000;
