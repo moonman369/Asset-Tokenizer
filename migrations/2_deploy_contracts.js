@@ -4,7 +4,7 @@ require("dotenv").config({ path: "../.env" });
 console.log(process.env);
 
 const BN = web3.utils.BN;
-const totalSupply = 1000000;
+const totalSupply = process.env.INITIAL_TOKENS;
 module.exports = async (deployer) => {
   let address = await web3.eth.getAccounts();
   await deployer.deploy(LiquidToken, totalSupply);
