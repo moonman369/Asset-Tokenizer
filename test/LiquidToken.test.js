@@ -51,9 +51,9 @@ contract("LiquidToken", async (accounts) => {
     const creatorBalance = await instance.balanceOf(creator);
     const sendAmount = creatorBalance + 1;
 
-    expect(
-      instance.transfer(recipient, sendAmount)
-    ).to.eventually.be.rejected();
+    return expect(
+      instance.transfer(recipient, new BN(sendAmount))
+    ).to.eventually.be.rejectedWith(TypeError);
     // expect(instance.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
     //   creatorBalance
     // );
