@@ -1,4 +1,5 @@
 const LiquidToken = artifacts.require("liquidtoken.sol");
+require("dotenv").config({ path: "../.env" });
 
 var chai = require("chai");
 const BN = web3.utils.BN;
@@ -14,7 +15,7 @@ contract("Liquid Token Test", async (accounts) => {
   const [creator, recipient, anotherAccount] = await accounts;
 
   beforeEach(async () => {
-    this.LQD = await LiquidToken.new(1000000);
+    this.LQD = await LiquidToken.new(process.env.INITIAL_TOKENS);
   });
 
   it("mint initial supply in creator's account", async () => {
