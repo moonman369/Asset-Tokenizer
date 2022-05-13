@@ -10,5 +10,5 @@ module.exports = async (deployer) => {
   await deployer.deploy(LiquidToken, totalSupply);
   await deployer.deploy(LiquidTokenSale, 1, address[0], LiquidToken.address);
   let instance = await LiquidToken.deployed();
-  await instance.transfer(LiquidTokenSale.address, new BN(totalSupply / 2));
+  await instance.transfer(LiquidTokenSale.address, new BN(totalSupply));
 };

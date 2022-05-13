@@ -6,10 +6,14 @@ const BN = web3.utils.BN;
 const expect = chai.expect;
 
 contract("Liquid Token Test", async (accounts) => {
-  const [creator, recipient, anotherAccount] = await accounts;
+  const [creator, recipient, anotherAccount] = accounts;
 
   beforeEach(async () => {
     this.LQD = await LiquidToken.new(process.env.INITIAL_TOKENS);
+  });
+
+  afterEach(async (done) => {
+    done();
   });
 
   it("mint initial supply in creator's account", async () => {
@@ -41,36 +45,35 @@ contract("Liquid Token Test", async (accounts) => {
   //   );
   // });
 
+  it("is not possible to send an amount greater than the total supply", async () => {
+    let instance = this.LQD;
+    let totalSupply = await instance.balanceOf(creator);
+    let sendAmount = 1000001;
+
+    expect(instance.transfer(recipient, new BN(sendAmount))).to.eventually.be
+      .rejected;
+    return expect(
+      instance.balanceOf(creator)
+    ).to.eventually.be.a.bignumber.equal(new BN(totalSupply));
+  });
+
   it("is possible to send tokens between accounts", async () => {
     let instance = this.LQD;
     const sendAmount = 1;
     let totalSupply = await instance.totalSupply();
+
     expect(instance.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
       new BN(totalSupply)
     );
     expect(instance.transfer(recipient, new BN(sendAmount))).to.eventually.be
       .fulfilled;
 
-    expect(instance.balanceOf(recipient)).to.eventually.be.a.bignumber.equal(
-      new BN(sendAmount)
-    );
-
-    return expect(
-      instance.balanceOf(creator)
-    ).to.eventually.be.a.bignumber.equal(
+    expect(instance.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
       new BN(Number(totalSupply) - sendAmount)
     );
+
+    expect(instance.balanceOf(recipient)).to.eventually.be.a.bignumber.equal(
+      new BN(0)
+    );
   });
-});
-
-it("is not possible to send an amount greater than the total supply", async () => {
-  let instance = this.LQD;
-  let totalSupply = await instance.balanceOf(creator);
-  let sendAmount = 1000001;
-
-  expect(instance.transfer(recipient, new BN(sendAmount))).to.eventually.be
-    .rejected;
-  expect(instance.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
-    totalSupply
-  );
 });
