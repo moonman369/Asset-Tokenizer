@@ -69,7 +69,7 @@ contract("Liquid Token Test", async (accounts) => {
     await expect(
       instance.balanceOf(creator)
     ).to.eventually.be.a.bignumber.equal(totalSupply.sub(new BN(sendTokens)));
-    await expect(
+    return await expect(
       instance.balanceOf(recipient)
     ).to.eventually.be.a.bignumber.equal(new BN(sendTokens));
   });
