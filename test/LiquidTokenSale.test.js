@@ -1,5 +1,7 @@
 const LiquidToken = artifacts.require("liquidtoken.sol");
-var LiquidTokenSale = artifacts.require("liquidtokensale.sol");
+const LiquidTokenSale = artifacts.require("liquidtokensale.sol");
+const LiquidTokenKYC = artifacts.require("liquidtokenkyc.sol");
+
 require("dotenv").config({ path: "../.env" });
 
 const chai = require("./setupchai.js");
@@ -34,13 +36,20 @@ contract("Liquid Token Sale Test", async (accounts) => {
   it("should be possible to buy tokens from the LiquidTokenSale contract", async () => {
     let instance1 = await LiquidToken.deployed();
     let instance2 = await LiquidTokenSale.deployed();
+    let instance3 = await LiquidTokenKYC.deployed();
+
     let initialBalance = await instance1.balanceOf(recipient);
+
+    await expect(instance3.approveKYC(recipient, { from: creator })).to
+      .eventually.be.fulfilled;
+
     await expect(
       instance2.sendTransaction({
         from: recipient,
         value: web3.utils.toWei("1", "wei"),
       })
     ).to.eventually.be.fulfilled;
+
     expect(instance1.balanceOf(recipient)).to.eventually.be.a.bignumber.equal(
       initialBalance.add(new BN(1))
     );
