@@ -58,24 +58,19 @@ contract("Liquid Token Test", async (accounts) => {
   });
 
   it("is possible to send tokens between accounts", async () => {
+    const sendTokens = 1;
     let instance = this.LQD;
-    const sendAmount = 1;
     let totalSupply = await instance.totalSupply();
-
-    expect(instance.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
-      new BN(totalSupply)
-    );
-    expect(instance.transfer(recipient, new BN(sendAmount))).to.eventually.be
-      .fulfilled;
-
-    expect(instance.balanceOf(recipient)).to.eventually.be.a.bignumber.equal(
-      new BN(0)
-    );
-
-    return expect(
+    await expect(
       instance.balanceOf(creator)
-    ).to.eventually.be.a.bignumber.equal(
-      new BN(Number(totalSupply) - sendAmount)
-    );
+    ).to.eventually.be.a.bignumber.equal(totalSupply);
+    await expect(instance.transfer(recipient, sendTokens)).to.eventually.be
+      .fulfilled;
+    await expect(
+      instance.balanceOf(creator)
+    ).to.eventually.be.a.bignumber.equal(totalSupply.sub(new BN(sendTokens)));
+    await expect(
+      instance.balanceOf(recipient)
+    ).to.eventually.be.a.bignumber.equal(new BN(sendTokens));
   });
 });
