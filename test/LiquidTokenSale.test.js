@@ -11,10 +11,6 @@ const expect = chai.expect;
 contract("Liquid Token Sale Test", async (accounts) => {
   const [creator, recipient, anotherAccount] = accounts;
 
-  afterEach(async (done) => {
-    done();
-  });
-
   it("should have 0 LQD tokens left in the creator account", async () => {
     let instance = await LiquidToken.deployed();
     let instance2 = await LiquidTokenSale.deployed();
@@ -50,8 +46,8 @@ contract("Liquid Token Sale Test", async (accounts) => {
       })
     ).to.eventually.be.fulfilled;
 
-    expect(instance1.balanceOf(recipient)).to.eventually.be.a.bignumber.equal(
-      initialBalance.add(new BN(1))
-    );
+    return expect(
+      instance1.balanceOf(recipient)
+    ).to.eventually.be.a.bignumber.equal(initialBalance.add(new BN(1)));
   });
 });
