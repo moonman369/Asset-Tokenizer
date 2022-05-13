@@ -3,7 +3,6 @@ var LiquidTokenSale = artifacts.require("liquidtokensale.sol");
 var LiquidTokenKYC = artifacts.require("liquidtokenkyc.sol");
 
 require("dotenv").config({ path: "../.env" });
-console.log(process.env);
 
 const BN = web3.utils.BN;
 const totalSupply = process.env.INITIAL_TOKENS;

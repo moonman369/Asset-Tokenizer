@@ -17,14 +17,27 @@ class App extends Component {
       this.web3 = await getWeb3();
 
       // Use web3 to get the user's accounts.
-      this.accounts = await web3.eth.getAccounts();
+      this.accounts = await this.web3.eth.getAccounts();
 
       // Get the contract instance.
-      this.networkId = await web3.eth.net.getId();
-      this.LiquidToken = new web3.eth.Contract(
+      this.networkId = await this.web3.eth.net.getId();
+
+      this.LiquidToken = new this.web3.eth.Contract(
         LiquidToken.abi,
         LiquidToken.networks[this.networkId] &&
           LiquidToken.networks[this.networkId].address
+      );
+
+      this.LiquidTokenKYC = new this.web3.eth.Contract(
+        LiquidTokenKYC.abi,
+        LiquidTokenKYC.networks[this.networkId] &&
+          LiquidTokenKYC.networks[this.networkId].address
+      );
+
+      this.LiquidTokenSale = new this.web3.eth.Contract(
+        LiquidTokenSale.abi,
+        LiquidTokenSale.networks[this.networkId] &&
+          LiquidTokenSale.networks[this.networkId].address
       );
 
       // Set web3, accounts, and contract to the state, and then proceed with an
