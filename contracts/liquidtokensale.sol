@@ -15,9 +15,9 @@ contract LiquidTokenSale is Crowdsale {
         kyc = LiquidTokenKYC( _kyc);
     }
 
-    function _preValidatePurchase(address beneficiary, uint256 weiAmount) internal view override {
-        super._preValidatePurchase(beneficiary, weiAmount);
-        require (kyc.getKYCStatus(msg.sender) == true, "LiquidTokenKYC: Incomplete KYC. Token purchase not allowed" );
+    function _preValidatePurchase(address _beneficiary, uint256 weiAmount) internal view override {
+        require (kyc.getKYCStatus(_msgSender()) == true, "LiquidTokenKYC: Incomplete KYC. Token purchase not allowed" );
+        super._preValidatePurchase(_beneficiary, weiAmount);
     }
 
 }
