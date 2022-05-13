@@ -13,12 +13,36 @@ contract("Liquid Token Sale Test", async (accounts) => {
     done();
   });
 
-  it("should have 50% of the total supply left in the creator account", async () => {
+  it("should have 0 LQD tokens left in the creator account", async () => {
     let instance = await LiquidToken.deployed();
     let instance2 = await LiquidTokenSale.deployed();
 
     return expect(
       instance.balanceOf.call(creator)
     ).to.eventually.be.a.bignumber.equal(new BN(0));
+  });
+
+  it("should have the entire initial supply of LQD tokens in the LiquidTokenSale contract", async () => {
+    let instance = await LiquidToken.deployed();
+    let totalSupply = await instance.totalSupply();
+
+    return expect(
+      instance.balanceOf.call(LiquidTokenSale.address)
+    ).to.eventually.be.a.bignumber.equal(new BN(totalSupply));
+  });
+
+  it("should be possible to buy tokens from the LiquidTokenSale contract", async () => {
+    let instance1 = await LiquidToken.deployed();
+    let instance2 = await LiquidTokenSale.deployed();
+    let initialBalance = await instance1.balanceOf(creator);
+    await expect(
+      instance2.sendTransaction({
+        from: creator,
+        value: web3.utils.toWei("1", "wei"),
+      })
+    ).to.eventually.be.fulfilled;
+    expect(instance1.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
+      initialBalance.add(new BN(1))
+    );
   });
 });
