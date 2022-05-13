@@ -34,6 +34,7 @@ contract("Liquid Token Sale Test", async (accounts) => {
   it("should be possible to buy tokens from the LiquidTokenSale contract", async () => {
     let instance1 = await LiquidToken.deployed();
     let instance2 = await LiquidTokenSale.deployed();
+    let initialBalance = await instance1.balanceOf(recipient);
     await expect(
       instance2.sendTransaction({
         from: recipient,
@@ -41,7 +42,7 @@ contract("Liquid Token Sale Test", async (accounts) => {
       })
     ).to.eventually.be.fulfilled;
     expect(instance1.balanceOf(recipient)).to.eventually.be.a.bignumber.equal(
-      new BN(1)
+      initialBalance.add(new BN(1))
     );
   });
 });
