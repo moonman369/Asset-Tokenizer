@@ -68,12 +68,14 @@ contract("Liquid Token Test", async (accounts) => {
     expect(instance.transfer(recipient, new BN(sendAmount))).to.eventually.be
       .fulfilled;
 
-    expect(instance.balanceOf(creator)).to.eventually.be.a.bignumber.equal(
-      new BN(Number(totalSupply) - sendAmount)
-    );
-
     expect(instance.balanceOf(recipient)).to.eventually.be.a.bignumber.equal(
       new BN(0)
+    );
+
+    return expect(
+      instance.balanceOf(creator)
+    ).to.eventually.be.a.bignumber.equal(
+      new BN(Number(totalSupply) - sendAmount)
     );
   });
 });
