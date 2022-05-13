@@ -8,7 +8,7 @@ contract LiquidTokenKYC is Ownable {
 
     mapping (address => bool) allowed;
 
-    function completeKYC (address _addr) public onlyOwner {
+    function approveKYC (address _addr) public onlyOwner {
         allowed[_addr] = true;
     }
 
