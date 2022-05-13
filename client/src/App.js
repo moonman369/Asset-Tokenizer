@@ -9,7 +9,7 @@ import getWeb3 from "./getWeb3";
 import "./App.css";
 
 class App extends Component {
-  state = {};
+  state = { loaded: false, kycAddress: null };
 
   componentDidMount = async () => {
     try {
@@ -42,7 +42,7 @@ class App extends Component {
 
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
-      this.setState({}, this.runExample);
+      this.setState({ loaded: true }, this.runExample);
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -52,23 +52,35 @@ class App extends Component {
     }
   };
 
+  handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value,
+    });
+  };
+
   render() {
-    if (!this.state.web3) {
-      return <div>Loading Web3, accounts, and contract...</div>;
-    }
+    if (!this.state.loaded) return <div>Loading Web3 and Accounts.</div>;
     return (
       <div className="App">
-        <h1>Good to Go!</h1>
-        <p>Your Truffle Box is installed and ready.</p>
-        <h2>Smart Contract Example</h2>
+        <h1>Liquid Token (LQD) Crowdsale</h1>
+        <h2>Whitelisting</h2>
         <p>
-          If your contracts compiled and migrated successfully, below will show
-          a stored value of 5 (by default).
+          Enter your Ethereum Wallet Address in the dialog box below to complete
+          your KYC process
         </p>
-        <p>
-          Try changing the value stored on <strong>line 42</strong> of App.js.
-        </p>
-        <div>The stored value is: {this.state.storageValue}</div>
+        <div>
+          Enter address:{" "}
+          <input
+            type="text"
+            placeholder="Wallet Address Here"
+            name="kycAddress"
+            value={this.state.kycAddress}
+            onChange={this.handleInputChange}
+          />
+        </div>
       </div>
     );
   }
