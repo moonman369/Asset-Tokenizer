@@ -9,7 +9,7 @@ import getWeb3 from "./getWeb3";
 import "./App.css";
 
 class App extends Component {
-  state = { loaded: false, kycAddress: "" };
+  state = { loaded: false, kycAddress: "", tokenSaleAddress: "" };
 
   componentDidMount = async () => {
     try {
@@ -44,7 +44,13 @@ class App extends Component {
 
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
-      this.setState({ loaded: true }, this.runExample);
+      this.setState(
+        {
+          loaded: true,
+          tokenSaleAddress: LiquidTokenSale.networks[this.networkId].address,
+        },
+        this.runExample
+      );
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -71,6 +77,10 @@ class App extends Component {
     alert(`KYC completed for address: ${this.state.kycAddress}`);
   };
 
+  copyToClipboard = async (event) => {
+    return navigator.clipboard.writeText(this.state.tokenSaleAddress);
+  };
+
   render() {
     if (!this.state.loaded) return <div>Loading Web3 and Accounts.</div>;
     return (
@@ -85,7 +95,7 @@ class App extends Component {
           Enter address:{" "}
           <input
             type="text"
-            placeholder="Wallet Address Here"
+            placeholder="Enter Wallet Address"
             name="kycAddress"
             value={this.state.kycAddress}
             onChange={this.handleInputChange}
@@ -94,6 +104,13 @@ class App extends Component {
             OK
           </button>
         </div>
+        <h2>Buy Tokens</h2>
+        <p>
+          Token contract address:{" "}
+          <button type="button" onClick={this.copyToClipboard}>
+            Copy to clipboard
+          </button>
+        </p>
       </div>
     );
   }
