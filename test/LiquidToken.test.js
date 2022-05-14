@@ -24,7 +24,7 @@ contract("Liquid Token Test", async (accounts) => {
   it("is not possible to send an amount greater than the total supply", async () => {
     let instance = this.LQD;
     let totalSupply = await instance.balanceOf(creator);
-    let sendAmount = 1000001;
+    let sendAmount = totalSupply + 1;
 
     expect(instance.transfer(recipient, new BN(sendAmount))).to.eventually.be
       .rejected;
