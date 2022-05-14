@@ -19,6 +19,8 @@ class App extends Component {
       // Use web3 to get the user's accounts.
       this.accounts = await this.web3.eth.getAccounts();
 
+      this.creator = this.accounts[0];
+
       // Get the contract instance.
       this.networkId = await this.web3.eth.net.getId();
 
@@ -64,7 +66,7 @@ class App extends Component {
   handleKYCWhitelisting = async (event) => {
     let result = await this.LiquidTokenKYC.methods
       .approveKYC(this.state.kycAddress)
-      .send({ from: this.accounts[0] });
+      .send({ from: this.creator });
     console.log(result);
     alert(`KYC completed for address: ${this.state.kycAddress}`);
   };
