@@ -1115,7 +1115,7 @@
                 }
               ]
             },
-            "name": "cleanup_t_contract$_LiquidTokenKYC_$2062",
+            "name": "cleanup_t_contract$_LiquidTokenKYC_$2059",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1194,7 +1194,7 @@
                               }
                             ],
                             "functionName": {
-                              "name": "cleanup_t_contract$_LiquidTokenKYC_$2062",
+                              "name": "cleanup_t_contract$_LiquidTokenKYC_$2059",
                               "nodeType": "YulIdentifier",
                               "src": "2017:40:13"
                             },
@@ -1224,7 +1224,7 @@
                 }
               ]
             },
-            "name": "validator_revert_t_contract$_LiquidTokenKYC_$2062",
+            "name": "validator_revert_t_contract$_LiquidTokenKYC_$2059",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1278,7 +1278,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "validator_revert_t_contract$_LiquidTokenKYC_$2062",
+                      "name": "validator_revert_t_contract$_LiquidTokenKYC_$2059",
                       "nodeType": "YulIdentifier",
                       "src": "2222:49:13"
                     },
@@ -1290,7 +1290,7 @@
                 }
               ]
             },
-            "name": "abi_decode_t_contract$_LiquidTokenKYC_$2062_fromMemory",
+            "name": "abi_decode_t_contract$_LiquidTokenKYC_$2059_fromMemory",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -1659,7 +1659,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "abi_decode_t_contract$_LiquidTokenKYC_$2062_fromMemory",
+                          "name": "abi_decode_t_contract$_LiquidTokenKYC_$2059_fromMemory",
                           "nodeType": "YulIdentifier",
                           "src": "3096:54:13"
                         },
@@ -1678,7 +1678,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_uint256t_address_payablet_contract$_IERC20_$808t_contract$_LiquidTokenKYC_$2062_fromMemory",
+            "name": "abi_decode_tuple_t_uint256t_address_payablet_contract$_IERC20_$808t_contract$_LiquidTokenKYC_$2059_fromMemory",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2889,7 +2889,7 @@
           }
         ]
       },
-      "contents": "{\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function validator_revert_t_uint256(value) {\n        if iszero(eq(value, cleanup_t_uint256(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_uint256_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_address_payable(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function validator_revert_t_address_payable(value) {\n        if iszero(eq(value, cleanup_t_address_payable(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_address_payable_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_address_payable(value)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_contract$_IERC20_$808(value) -> cleaned {\n        cleaned := cleanup_t_address(value)\n    }\n\n    function validator_revert_t_contract$_IERC20_$808(value) {\n        if iszero(eq(value, cleanup_t_contract$_IERC20_$808(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_contract$_IERC20_$808_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_contract$_IERC20_$808(value)\n    }\n\n    function cleanup_t_contract$_LiquidTokenKYC_$2062(value) -> cleaned {\n        cleaned := cleanup_t_address(value)\n    }\n\n    function validator_revert_t_contract$_LiquidTokenKYC_$2062(value) {\n        if iszero(eq(value, cleanup_t_contract$_LiquidTokenKYC_$2062(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_contract$_LiquidTokenKYC_$2062_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_contract$_LiquidTokenKYC_$2062(value)\n    }\n\n    function abi_decode_tuple_t_uint256t_address_payablet_contract$_IERC20_$808t_contract$_LiquidTokenKYC_$2062_fromMemory(headStart, dataEnd) -> value0, value1, value2, value3 {\n        if slt(sub(dataEnd, headStart), 128) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint256_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_address_payable_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 64\n\n            value2 := abi_decode_t_contract$_IERC20_$808_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 96\n\n            value3 := abi_decode_t_contract$_LiquidTokenKYC_$2062_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function store_literal_in_memory_8b72f2adcfe62a5614b704f585faa49282940ab878a00620f85b716aa41f6d78(memPtr) {\n\n        mstore(add(memPtr, 0), \"Crowdsale: rate is 0\")\n\n    }\n\n    function abi_encode_t_stringliteral_8b72f2adcfe62a5614b704f585faa49282940ab878a00620f85b716aa41f6d78_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 20)\n        store_literal_in_memory_8b72f2adcfe62a5614b704f585faa49282940ab878a00620f85b716aa41f6d78(pos)\n        end := add(pos, 32)\n    }\n\n    function abi_encode_tuple_t_stringliteral_8b72f2adcfe62a5614b704f585faa49282940ab878a00620f85b716aa41f6d78__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_8b72f2adcfe62a5614b704f585faa49282940ab878a00620f85b716aa41f6d78_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function store_literal_in_memory_e2b432b30cf592332baa824ba45b03380bf314917ec1eb0e2522d19fb933b9f6(memPtr) {\n\n        mstore(add(memPtr, 0), \"Crowdsale: wallet is the zero ad\")\n\n        mstore(add(memPtr, 32), \"dress\")\n\n    }\n\n    function abi_encode_t_stringliteral_e2b432b30cf592332baa824ba45b03380bf314917ec1eb0e2522d19fb933b9f6_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 37)\n        store_literal_in_memory_e2b432b30cf592332baa824ba45b03380bf314917ec1eb0e2522d19fb933b9f6(pos)\n        end := add(pos, 64)\n    }\n\n    function abi_encode_tuple_t_stringliteral_e2b432b30cf592332baa824ba45b03380bf314917ec1eb0e2522d19fb933b9f6__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_e2b432b30cf592332baa824ba45b03380bf314917ec1eb0e2522d19fb933b9f6_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function store_literal_in_memory_64ba396754921ac5cdc6388a09272386edd92a5c198850f31a7c165ba7c79b82(memPtr) {\n\n        mstore(add(memPtr, 0), \"Crowdsale: token is the zero add\")\n\n        mstore(add(memPtr, 32), \"ress\")\n\n    }\n\n    function abi_encode_t_stringliteral_64ba396754921ac5cdc6388a09272386edd92a5c198850f31a7c165ba7c79b82_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 36)\n        store_literal_in_memory_64ba396754921ac5cdc6388a09272386edd92a5c198850f31a7c165ba7c79b82(pos)\n        end := add(pos, 64)\n    }\n\n    function abi_encode_tuple_t_stringliteral_64ba396754921ac5cdc6388a09272386edd92a5c198850f31a7c165ba7c79b82__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_64ba396754921ac5cdc6388a09272386edd92a5c198850f31a7c165ba7c79b82_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n}\n",
+      "contents": "{\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function validator_revert_t_uint256(value) {\n        if iszero(eq(value, cleanup_t_uint256(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_uint256_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_address_payable(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function validator_revert_t_address_payable(value) {\n        if iszero(eq(value, cleanup_t_address_payable(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_address_payable_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_address_payable(value)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_contract$_IERC20_$808(value) -> cleaned {\n        cleaned := cleanup_t_address(value)\n    }\n\n    function validator_revert_t_contract$_IERC20_$808(value) {\n        if iszero(eq(value, cleanup_t_contract$_IERC20_$808(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_contract$_IERC20_$808_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_contract$_IERC20_$808(value)\n    }\n\n    function cleanup_t_contract$_LiquidTokenKYC_$2059(value) -> cleaned {\n        cleaned := cleanup_t_address(value)\n    }\n\n    function validator_revert_t_contract$_LiquidTokenKYC_$2059(value) {\n        if iszero(eq(value, cleanup_t_contract$_LiquidTokenKYC_$2059(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_contract$_LiquidTokenKYC_$2059_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_contract$_LiquidTokenKYC_$2059(value)\n    }\n\n    function abi_decode_tuple_t_uint256t_address_payablet_contract$_IERC20_$808t_contract$_LiquidTokenKYC_$2059_fromMemory(headStart, dataEnd) -> value0, value1, value2, value3 {\n        if slt(sub(dataEnd, headStart), 128) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint256_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_address_payable_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 64\n\n            value2 := abi_decode_t_contract$_IERC20_$808_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 96\n\n            value3 := abi_decode_t_contract$_LiquidTokenKYC_$2059_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function store_literal_in_memory_8b72f2adcfe62a5614b704f585faa49282940ab878a00620f85b716aa41f6d78(memPtr) {\n\n        mstore(add(memPtr, 0), \"Crowdsale: rate is 0\")\n\n    }\n\n    function abi_encode_t_stringliteral_8b72f2adcfe62a5614b704f585faa49282940ab878a00620f85b716aa41f6d78_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 20)\n        store_literal_in_memory_8b72f2adcfe62a5614b704f585faa49282940ab878a00620f85b716aa41f6d78(pos)\n        end := add(pos, 32)\n    }\n\n    function abi_encode_tuple_t_stringliteral_8b72f2adcfe62a5614b704f585faa49282940ab878a00620f85b716aa41f6d78__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_8b72f2adcfe62a5614b704f585faa49282940ab878a00620f85b716aa41f6d78_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function store_literal_in_memory_e2b432b30cf592332baa824ba45b03380bf314917ec1eb0e2522d19fb933b9f6(memPtr) {\n\n        mstore(add(memPtr, 0), \"Crowdsale: wallet is the zero ad\")\n\n        mstore(add(memPtr, 32), \"dress\")\n\n    }\n\n    function abi_encode_t_stringliteral_e2b432b30cf592332baa824ba45b03380bf314917ec1eb0e2522d19fb933b9f6_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 37)\n        store_literal_in_memory_e2b432b30cf592332baa824ba45b03380bf314917ec1eb0e2522d19fb933b9f6(pos)\n        end := add(pos, 64)\n    }\n\n    function abi_encode_tuple_t_stringliteral_e2b432b30cf592332baa824ba45b03380bf314917ec1eb0e2522d19fb933b9f6__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_e2b432b30cf592332baa824ba45b03380bf314917ec1eb0e2522d19fb933b9f6_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function store_literal_in_memory_64ba396754921ac5cdc6388a09272386edd92a5c198850f31a7c165ba7c79b82(memPtr) {\n\n        mstore(add(memPtr, 0), \"Crowdsale: token is the zero add\")\n\n        mstore(add(memPtr, 32), \"ress\")\n\n    }\n\n    function abi_encode_t_stringliteral_64ba396754921ac5cdc6388a09272386edd92a5c198850f31a7c165ba7c79b82_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 36)\n        store_literal_in_memory_64ba396754921ac5cdc6388a09272386edd92a5c198850f31a7c165ba7c79b82(pos)\n        end := add(pos, 64)\n    }\n\n    function abi_encode_tuple_t_stringliteral_64ba396754921ac5cdc6388a09272386edd92a5c198850f31a7c165ba7c79b82__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_64ba396754921ac5cdc6388a09272386edd92a5c198850f31a7c165ba7c79b82_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n}\n",
       "id": 13,
       "language": "Yul",
       "name": "#utility.yul"
@@ -9439,10 +9439,10 @@
         808
       ],
       "LiquidTokenKYC": [
-        2062
+        2059
       ],
       "LiquidTokenSale": [
-        2124
+        2121
       ],
       "Ownable": [
         104
@@ -9457,12 +9457,12 @@
         1686
       ]
     },
-    "id": 2125,
+    "id": 2122,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2064,
+        "id": 2061,
         "literals": [
           "solidity",
           "^",
@@ -9475,10 +9475,10 @@
       {
         "absolutePath": "project:/contracts/crowdsale.sol",
         "file": "./crowdsale.sol",
-        "id": 2065,
+        "id": 2062,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 2125,
+        "scope": 2122,
         "sourceUnit": 1988,
         "src": "62:25:12",
         "symbolAliases": [],
@@ -9487,11 +9487,11 @@
       {
         "absolutePath": "project:/contracts/liquidtokenkyc.sol",
         "file": "./liquidtokenkyc.sol",
-        "id": 2066,
+        "id": 2063,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 2125,
-        "sourceUnit": 2063,
+        "scope": 2122,
+        "sourceUnit": 2060,
         "src": "89:30:12",
         "symbolAliases": [],
         "unitAlias": ""
@@ -9501,13 +9501,13 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 2067,
+              "id": 2064,
               "name": "Crowdsale",
               "nodeType": "IdentifierPath",
               "referencedDeclaration": 1987,
               "src": "151:9:12"
             },
-            "id": 2068,
+            "id": 2065,
             "nodeType": "InheritanceSpecifier",
             "src": "151:9:12"
           }
@@ -9516,9 +9516,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2124,
+        "id": 2121,
         "linearizedBaseContracts": [
-          2124,
+          2121,
           1987,
           144,
           1374
@@ -9529,33 +9529,33 @@
         "nodes": [
           {
             "constant": false,
-            "id": 2071,
+            "id": 2068,
             "mutability": "mutable",
             "name": "kyc",
             "nameLocation": "185:3:12",
             "nodeType": "VariableDeclaration",
-            "scope": 2124,
+            "scope": 2121,
             "src": "170:18:12",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_LiquidTokenKYC_$2062",
+              "typeIdentifier": "t_contract$_LiquidTokenKYC_$2059",
               "typeString": "contract LiquidTokenKYC"
             },
             "typeName": {
-              "id": 2070,
+              "id": 2067,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 2069,
+                "id": 2066,
                 "name": "LiquidTokenKYC",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 2062,
+                "referencedDeclaration": 2059,
                 "src": "170:14:12"
               },
-              "referencedDeclaration": 2062,
+              "referencedDeclaration": 2059,
               "src": "170:14:12",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_LiquidTokenKYC_$2062",
+                "typeIdentifier": "t_contract$_LiquidTokenKYC_$2059",
                 "typeString": "contract LiquidTokenKYC"
               }
             },
@@ -9563,26 +9563,26 @@
           },
           {
             "body": {
-              "id": 2095,
+              "id": 2092,
               "nodeType": "Block",
               "src": "336:46:12",
               "statements": [
                 {
                   "expression": {
-                    "id": 2093,
+                    "id": 2090,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 2089,
+                      "id": 2086,
                       "name": "kyc",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2071,
+                      "referencedDeclaration": 2068,
                       "src": "347:3:12",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_LiquidTokenKYC_$2062",
+                        "typeIdentifier": "t_contract$_LiquidTokenKYC_$2059",
                         "typeString": "contract LiquidTokenKYC"
                       }
                     },
@@ -9591,14 +9591,14 @@
                     "rightHandSide": {
                       "arguments": [
                         {
-                          "id": 2091,
+                          "id": 2088,
                           "name": "_kyc",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2081,
+                          "referencedDeclaration": 2078,
                           "src": "369:4:12",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_LiquidTokenKYC_$2062",
+                            "typeIdentifier": "t_contract$_LiquidTokenKYC_$2059",
                             "typeString": "contract LiquidTokenKYC"
                           }
                         }
@@ -9606,22 +9606,22 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_LiquidTokenKYC_$2062",
+                            "typeIdentifier": "t_contract$_LiquidTokenKYC_$2059",
                             "typeString": "contract LiquidTokenKYC"
                           }
                         ],
-                        "id": 2090,
+                        "id": 2087,
                         "name": "LiquidTokenKYC",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2062,
+                        "referencedDeclaration": 2059,
                         "src": "353:14:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_LiquidTokenKYC_$2062_$",
+                          "typeIdentifier": "t_type$_t_contract$_LiquidTokenKYC_$2059_$",
                           "typeString": "type(contract LiquidTokenKYC)"
                         }
                       },
-                      "id": 2092,
+                      "id": 2089,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -9632,34 +9632,34 @@
                       "src": "353:21:12",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_LiquidTokenKYC_$2062",
+                        "typeIdentifier": "t_contract$_LiquidTokenKYC_$2059",
                         "typeString": "contract LiquidTokenKYC"
                       }
                     },
                     "src": "347:27:12",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_LiquidTokenKYC_$2062",
+                      "typeIdentifier": "t_contract$_LiquidTokenKYC_$2059",
                       "typeString": "contract LiquidTokenKYC"
                     }
                   },
-                  "id": 2094,
+                  "id": 2091,
                   "nodeType": "ExpressionStatement",
                   "src": "347:27:12"
                 }
               ]
             },
-            "id": 2096,
+            "id": 2093,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [
               {
                 "arguments": [
                   {
-                    "id": 2084,
+                    "id": 2081,
                     "name": "_rate",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2073,
+                    "referencedDeclaration": 2070,
                     "src": "307:5:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -9667,11 +9667,11 @@
                     }
                   },
                   {
-                    "id": 2085,
+                    "id": 2082,
                     "name": "_wallet",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2075,
+                    "referencedDeclaration": 2072,
                     "src": "314:7:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
@@ -9679,11 +9679,11 @@
                     }
                   },
                   {
-                    "id": 2086,
+                    "id": 2083,
                     "name": "_token",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 2078,
+                    "referencedDeclaration": 2075,
                     "src": "323:6:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_contract$_IERC20_$808",
@@ -9691,10 +9691,10 @@
                     }
                   }
                 ],
-                "id": 2087,
+                "id": 2084,
                 "kind": "baseConstructorSpecifier",
                 "modifierName": {
-                  "id": 2083,
+                  "id": 2080,
                   "name": "Crowdsale",
                   "nodeType": "IdentifierPath",
                   "referencedDeclaration": 1987,
@@ -9708,17 +9708,17 @@
             "nameLocation": "-1:-1:-1",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2082,
+              "id": 2079,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2073,
+                  "id": 2070,
                   "mutability": "mutable",
                   "name": "_rate",
                   "nameLocation": "218:5:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2096,
+                  "scope": 2093,
                   "src": "210:13:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9727,7 +9727,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2072,
+                    "id": 2069,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "210:7:12",
@@ -9740,12 +9740,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2075,
+                  "id": 2072,
                   "mutability": "mutable",
                   "name": "_wallet",
                   "nameLocation": "241:7:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2096,
+                  "scope": 2093,
                   "src": "225:23:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9754,7 +9754,7 @@
                     "typeString": "address payable"
                   },
                   "typeName": {
-                    "id": 2074,
+                    "id": 2071,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "225:15:12",
@@ -9768,12 +9768,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2078,
+                  "id": 2075,
                   "mutability": "mutable",
                   "name": "_token",
                   "nameLocation": "257:6:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2096,
+                  "scope": 2093,
                   "src": "250:13:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -9782,10 +9782,10 @@
                     "typeString": "contract IERC20"
                   },
                   "typeName": {
-                    "id": 2077,
+                    "id": 2074,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 2076,
+                      "id": 2073,
                       "name": "IERC20",
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 808,
@@ -9802,33 +9802,33 @@
                 },
                 {
                   "constant": false,
-                  "id": 2081,
+                  "id": 2078,
                   "mutability": "mutable",
                   "name": "_kyc",
                   "nameLocation": "280:4:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2096,
+                  "scope": 2093,
                   "src": "265:19:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_LiquidTokenKYC_$2062",
+                    "typeIdentifier": "t_contract$_LiquidTokenKYC_$2059",
                     "typeString": "contract LiquidTokenKYC"
                   },
                   "typeName": {
-                    "id": 2080,
+                    "id": 2077,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 2079,
+                      "id": 2076,
                       "name": "LiquidTokenKYC",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 2062,
+                      "referencedDeclaration": 2059,
                       "src": "265:14:12"
                     },
-                    "referencedDeclaration": 2062,
+                    "referencedDeclaration": 2059,
                     "src": "265:14:12",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_LiquidTokenKYC_$2062",
+                      "typeIdentifier": "t_contract$_LiquidTokenKYC_$2059",
                       "typeString": "contract LiquidTokenKYC"
                     }
                   },
@@ -9838,12 +9838,12 @@
               "src": "209:76:12"
             },
             "returnParameters": {
-              "id": 2088,
+              "id": 2085,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "336:0:12"
             },
-            "scope": 2124,
+            "scope": 2121,
             "src": "197:185:12",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -9854,7 +9854,7 @@
               1912
             ],
             "body": {
-              "id": 2122,
+              "id": 2119,
               "nodeType": "Block",
               "src": "484:192:12",
               "statements": [
@@ -9866,7 +9866,7 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 2111,
+                        "id": 2108,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -9877,7 +9877,7 @@
                               "arguments": [],
                               "expression": {
                                 "argumentTypes": [],
-                                "id": 2107,
+                                "id": 2104,
                                 "name": "_msgSender",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
@@ -9888,7 +9888,7 @@
                                   "typeString": "function () view returns (address)"
                                 }
                               },
-                              "id": 2108,
+                              "id": 2105,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -9912,32 +9912,32 @@
                               }
                             ],
                             "expression": {
-                              "id": 2105,
+                              "id": 2102,
                               "name": "kyc",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 2071,
+                              "referencedDeclaration": 2068,
                               "src": "504:3:12",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_LiquidTokenKYC_$2062",
+                                "typeIdentifier": "t_contract$_LiquidTokenKYC_$2059",
                                 "typeString": "contract LiquidTokenKYC"
                               }
                             },
-                            "id": 2106,
+                            "id": 2103,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "getKYCStatus",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 2061,
+                            "referencedDeclaration": 2058,
                             "src": "504:16:12",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_bool_$",
                               "typeString": "function (address) view external returns (bool)"
                             }
                           },
-                          "id": 2109,
+                          "id": 2106,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -9956,7 +9956,7 @@
                         "operator": "==",
                         "rightExpression": {
                           "hexValue": "74727565",
-                          "id": 2110,
+                          "id": 2107,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -9978,7 +9978,7 @@
                       },
                       {
                         "hexValue": "4c6971756964546f6b656e4b59433a20496e636f6d706c657465204b59432e20546f6b656e207075726368617365206e6f7420616c6c6f776564",
-                        "id": 2112,
+                        "id": 2109,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -10004,7 +10004,7 @@
                           "typeString": "literal_string \"LiquidTokenKYC: Incomplete KYC. Token purchase not allowed\""
                         }
                       ],
-                      "id": 2104,
+                      "id": 2101,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -10018,7 +10018,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 2113,
+                    "id": 2110,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -10033,7 +10033,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2114,
+                  "id": 2111,
                   "nodeType": "ExpressionStatement",
                   "src": "495:111:12"
                 },
@@ -10041,11 +10041,11 @@
                   "expression": {
                     "arguments": [
                       {
-                        "id": 2118,
+                        "id": 2115,
                         "name": "_beneficiary",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2098,
+                        "referencedDeclaration": 2095,
                         "src": "644:12:12",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -10053,11 +10053,11 @@
                         }
                       },
                       {
-                        "id": 2119,
+                        "id": 2116,
                         "name": "weiAmount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2100,
+                        "referencedDeclaration": 2097,
                         "src": "658:9:12",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -10077,18 +10077,18 @@
                         }
                       ],
                       "expression": {
-                        "id": 2115,
+                        "id": 2112,
                         "name": "super",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 4294967271,
                         "src": "617:5:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_super$_LiquidTokenSale_$2124_$",
+                          "typeIdentifier": "t_type$_t_super$_LiquidTokenSale_$2121_$",
                           "typeString": "type(contract super LiquidTokenSale)"
                         }
                       },
-                      "id": 2117,
+                      "id": 2114,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -10102,7 +10102,7 @@
                         "typeString": "function (address,uint256) view"
                       }
                     },
-                    "id": 2120,
+                    "id": 2117,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -10117,13 +10117,13 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 2121,
+                  "id": 2118,
                   "nodeType": "ExpressionStatement",
                   "src": "617:51:12"
                 }
               ]
             },
-            "id": 2123,
+            "id": 2120,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -10131,23 +10131,23 @@
             "nameLocation": "399:20:12",
             "nodeType": "FunctionDefinition",
             "overrides": {
-              "id": 2102,
+              "id": 2099,
               "nodeType": "OverrideSpecifier",
               "overrides": [],
               "src": "475:8:12"
             },
             "parameters": {
-              "id": 2101,
+              "id": 2098,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2098,
+                  "id": 2095,
                   "mutability": "mutable",
                   "name": "_beneficiary",
                   "nameLocation": "428:12:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2123,
+                  "scope": 2120,
                   "src": "420:20:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -10156,7 +10156,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2097,
+                    "id": 2094,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "420:7:12",
@@ -10170,12 +10170,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 2100,
+                  "id": 2097,
                   "mutability": "mutable",
                   "name": "weiAmount",
                   "nameLocation": "450:9:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2123,
+                  "scope": 2120,
                   "src": "442:17:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -10184,7 +10184,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2099,
+                    "id": 2096,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "442:7:12",
@@ -10199,19 +10199,19 @@
               "src": "419:41:12"
             },
             "returnParameters": {
-              "id": 2103,
+              "id": 2100,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "484:0:12"
             },
-            "scope": 2124,
+            "scope": 2121,
             "src": "390:286:12",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 2125,
+        "scope": 2122,
         "src": "123:558:12",
         "usedErrors": []
       }
@@ -10232,12 +10232,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xAA5B06D09cD05fc9f71897AeB6dc2337DAB3CEe0",
-      "transactionHash": "0xbc4a7b5cbe0a3870dd0f95fa70396f3277d9a4b2da54fad71f0efc746988bab1"
+      "address": "0x8e05F73A2c93956aF2954B1e6E892A8Cf45bcaAA",
+      "transactionHash": "0x537987452eb0d5d516849772d0ed05eed2c88e95f37f2f707c5152afa25d6fa4"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-05-14T19:30:26.517Z",
+  "updatedAt": "2022-05-14T20:09:05.181Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
