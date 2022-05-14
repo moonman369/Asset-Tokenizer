@@ -104,6 +104,8 @@ class App extends Component {
             OK
           </button>
         </div>
+        <br />
+        <br />
         <h2>Buy Tokens</h2>
         <p>
           Token contract address:{" "}
