@@ -9,7 +9,7 @@ import getWeb3 from "./getWeb3";
 import "./App.css";
 
 class App extends Component {
-  state = { loaded: false, kycAddress: null };
+  state = { loaded: false, kycAddress: "" };
 
   componentDidMount = async () => {
     try {
@@ -61,15 +61,23 @@ class App extends Component {
     });
   };
 
+  handleKYCWhitelisting = async (event) => {
+    let result = await this.LiquidTokenKYC.methods
+      .approveKYC(this.state.kycAddress)
+      .send({ from: this.accounts[0] });
+    console.log(result);
+    alert(`KYC completed for address: ${this.state.kycAddress}`);
+  };
+
   render() {
     if (!this.state.loaded) return <div>Loading Web3 and Accounts.</div>;
     return (
       <div className="App">
-        <h1>Liquid Token (LQD) Crowdsale</h1>
+        <h1>Liquid Token ($LQD) Crowdsale</h1>
         <h2>Whitelisting</h2>
         <p>
-          Enter your Ethereum Wallet Address in the dialog box below to complete
-          your KYC process
+          Enter your Ethereum Wallet Address in the dialog box below and click
+          on 'OK' to complete your KYC process
         </p>
         <div>
           Enter address:{" "}
@@ -80,6 +88,9 @@ class App extends Component {
             value={this.state.kycAddress}
             onChange={this.handleInputChange}
           />
+          <button type="button" onClick={this.handleKYCWhitelisting}>
+            OK
+          </button>
         </div>
       </div>
     );
