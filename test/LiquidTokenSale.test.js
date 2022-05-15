@@ -11,22 +11,23 @@ const expect = chai.expect;
 contract("Liquid Token Sale Test", async (accounts) => {
   const [creator, recipient, anotherAccount] = accounts;
 
-  it("should have 0 LQD tokens left in the creator account", async () => {
+  it("should have 25% of total initial supply of LQD tokens left in the creator account", async () => {
     let instance = await LiquidToken.deployed();
+    let initialSupply = await instance.totalSupply();
     let instance2 = await LiquidTokenSale.deployed();
 
     return expect(
       instance.balanceOf.call(creator)
-    ).to.eventually.be.a.bignumber.equal(new BN(0));
+    ).to.eventually.be.a.bignumber.equal(new BN(initialSupply / 4));
   });
 
-  it("should have the entire initial supply of LQD tokens in the LiquidTokenSale contract", async () => {
+  it("should have 75% of initial supply of LQD tokens in the LiquidTokenSale contract", async () => {
     let instance = await LiquidToken.deployed();
     let totalSupply = await instance.totalSupply();
 
     return expect(
       instance.balanceOf.call(LiquidTokenSale.address)
-    ).to.eventually.be.a.bignumber.equal(new BN(totalSupply));
+    ).to.eventually.be.a.bignumber.equal(new BN((3 * totalSupply) / 4));
   });
 
   it("should be possible to buy tokens from the LiquidTokenSale contract", async () => {
