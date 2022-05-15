@@ -8,11 +8,21 @@ contract LiquidTokenKYC is Ownable {
 
     mapping (address => bool) allowed;
 
-    function approveKYC (address _addr) public onlyOwner {
+    modifier notWhitelisted (address _addr) {
+        require (!allowed[_addr], "LiquidTokenKYC: This address is already whitelisted.");
+        _;
+    }
+
+    modifier whitelisted (address _addr) {
+        require (allowed[_addr], "LiquidTokenKYC: This address is not whitelisted.");
+        _;
+    }
+
+    function approveKYC (address _addr) public onlyOwner notWhitelisted (_addr) {
         allowed[_addr] = true;
     }
 
-    function revokeKYC (address _addr) public onlyOwner {
+    function revokeKYC (address _addr) public onlyOwner whitelisted (_addr) {
         allowed[_addr] = false;
     }
 

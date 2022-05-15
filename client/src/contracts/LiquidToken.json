@@ -8323,21 +8323,11 @@
   "ast": {
     "absolutePath": "project:/contracts/liquidtoken.sol",
     "exportedSymbols": {
-      "Context": [
-        1374
-      ],
-      "ERC20": [
-        730
-      ],
-      "IERC20": [
-        808
-      ],
-      "IERC20Metadata": [
-        833
-      ],
-      "LiquidToken": [
-        2009
-      ]
+      "Context": [1374],
+      "ERC20": [730],
+      "IERC20": [808],
+      "IERC20Metadata": [833],
+      "LiquidToken": [2009]
     },
     "id": 2010,
     "license": "MIT",
@@ -8345,12 +8335,7 @@
     "nodes": [
       {
         "id": 1989,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "35:23:10"
       },
@@ -8387,13 +8372,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 2009,
-        "linearizedBaseContracts": [
-          2009,
-          730,
-          833,
-          808,
-          1374
-        ],
+        "linearizedBaseContracts": [2009, 730, 833, 808, 1374],
         "name": "LiquidToken",
         "nameLocation": "130:11:10",
         "nodeType": "ContractDefinition",
@@ -8718,12 +8697,12 @@
         }
       },
       "links": {},
-      "address": "0xDAbB45317cB93b9651c44E99FAFA4Fa2041fB464",
-      "transactionHash": "0x93f8bbb52fcfbe7bc735b21ad23fa385d02e68e5b5121f8aecc0fdbe34ef1a8a"
+      "address": "0xCD387ba4902aCebfc4226941D6c4731fFb55bf48",
+      "transactionHash": "0x43fb38d10887671be7c1045ed037cd608fd27ca693d8e0af8eaed8c9e4af2ba2"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-05-15T06:49:36.760Z",
+  "updatedAt": "2022-05-15T08:11:20.545Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
