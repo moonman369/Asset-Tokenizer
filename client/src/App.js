@@ -108,10 +108,13 @@ class App extends Component {
         <br />
         <h2>Buy Tokens</h2>
         <p>
-          Token contract address:{" "}
+          Token sale contract address: <br />
+          {this.state.tokenSaleAddress}&nbsp;&nbsp;
           <button type="button" onClick={this.copyToClipboard}>
             Copy to clipboard
           </button>
+          <br />
+          <p>Send Wei to this token sale contract to buy crowdsale tokens.</p>
         </p>
       </div>
     );
