@@ -114,7 +114,7 @@ class App extends Component {
             Copy to clipboard
           </button>
           <br />
-          <p>Send Wei to this token sale contract to buy crowdsale tokens.</p>
+          Send Wei to this token sale contract to buy crowdsale tokens.
         </p>
       </div>
     );
