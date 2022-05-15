@@ -5,7 +5,7 @@ var LiquidTokenKYC = artifacts.require("liquidtokenkyc.sol");
 require("dotenv").config({ path: "../.env" });
 
 const BN = web3.utils.BN;
-const totalSupply = process.env.INITIAL_TOKENS;
+let totalSupply = process.env.INITIAL_TOKENS;
 module.exports = async (deployer) => {
   let address = await web3.eth.getAccounts();
   await deployer.deploy(LiquidToken, totalSupply);
@@ -21,5 +21,6 @@ module.exports = async (deployer) => {
   );
 
   let instance = await LiquidToken.deployed();
+  totalSupply *= 10 ** (await instance.decimals());
   await instance.transfer(LiquidTokenSale.address, new BN(totalSupply));
 };
